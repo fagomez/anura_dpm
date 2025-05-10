@@ -9,8 +9,12 @@
   <header>
     <h1>&#x1F438; Diffusion-based data augmentation for anuran call generation</h1>
   </header>
-  
-  [Escuchar audio](audio_samples/s2/803_0_FNJV_0043889_Boana_albomarginata_Picinguaba_SP_Guilherme Augusto-Alves.wav)
+
+
+<audio controls>
+  <source src="audio_samples/s2/803_0_FNJV_0043889_Boana_albomarginata_Picinguaba_SP_Guilherme Augusto-Alves.wav" type="audio/wav">
+  Tu navegador no soporta el reproductor de audio.
+</audio>
 
   <section id="introduction" class="section">
     <h2>Introduction</h2>
