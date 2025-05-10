@@ -12,7 +12,8 @@
 
 
 <audio controls>
-  <source src="https://https://github.com/fagomez/anura_dpm/audio_samples/s2/803_0_FNJV_0043889_Boana_albomarginata_Picinguaba_SP_Guilherme Augusto-Alves.wav" type="audio/wav">
+	
+  <source src="https://github.com/fagomez/anura_dpm/tree/main/audio_samples/s1/803_0_FNJV_0043889_Boana_albomarginata_Picinguaba_SP_Guilherme Augusto-Alves.wav" type="audio/wav">
   Tu navegador no soporta el reproductor de audio.
 </audio>
 
