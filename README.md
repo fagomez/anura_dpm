@@ -77,7 +77,7 @@
       <td>Original</td>
       <td>
         <audio controls>
-          <source src="audio_samples/s1/95_0_FNJV_0050754_Adenomera_marmorata_Guapimirim_RJ_Pedro P. G. Taucce.wav" type="audio/mp3" />
+          <source src="audio_samples/s1/95_0_FNJV_0050754_Adenomera_marmorata_Guapimirim_RJ_Pedro P. G. Taucce.wav" type="audio/wav" />
         </audio>
       </td>
       <td>
