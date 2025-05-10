@@ -1,0 +1,9 @@
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s1
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s2
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s3
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s4
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s5
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s6
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s7
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s8
+python cnn.py --max_epoch=10000 --batch_size=20 --mode=1 --batch_size_gen=20 --eps_stop=0.000001 --working_dir=s9

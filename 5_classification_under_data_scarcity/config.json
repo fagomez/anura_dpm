@@ -1,0 +1,73 @@
+{   
+    "audio_config": {
+        "sample_rate":16000,
+        "time_sample_sec": 1
+    },
+    "diffusion_config":{
+        "T": 200,
+        "beta_0": 0.0001,
+        "beta_T": 0.02
+    },
+	"wavenet_config": { 
+		"in_channels": 1, 
+        "res_channels": 128, 
+        "skip_channels": 128, 
+        "out_channels": 1, 
+        "num_res_layers": 18, 
+        "dilation_cycle": 6, 
+        "diffusion_step_embed_dim_in": 64,
+        "diffusion_step_embed_dim_mid": 256,
+        "diffusion_step_embed_dim_out": 256
+	},
+	"wavenet_config_very_small": {
+		"in_channels": 1, 
+        "res_channels": 16, 
+        "skip_channels": 16, 
+        "out_channels": 1, 
+        "num_res_layers": 6, 
+        "dilation_cycle": 3, 
+        "diffusion_step_embed_dim_in": 16,
+        "diffusion_step_embed_dim_mid": 32,
+        "diffusion_step_embed_dim_out": 32
+	},
+	"wavenet_config_small": {
+		"in_channels": 1, 
+        "res_channels": 64, 
+        "skip_channels": 64, 
+        "out_channels": 1, 
+        "num_res_layers": 12, 
+        "dilation_cycle": 6, 
+        "diffusion_step_embed_dim_in": 32,
+        "diffusion_step_embed_dim_mid": 128,
+        "diffusion_step_embed_dim_out": 128
+	},
+    "wavenet_config_medum": {
+	"in_channels": 1, 
+        "res_channels": 128, 
+        "skip_channels": 128, 
+        "out_channels": 1, 
+        "num_res_layers": 18, 
+        "dilation_cycle": 6, 
+        "diffusion_step_embed_dim_in": 64,
+        "diffusion_step_embed_dim_mid": 256,
+        "diffusion_step_embed_dim_out": 256
+    },
+	"wavenet_config_harge": {
+        "in_channels": 1, 
+        "res_channels": 256, 
+        "skip_channels": 256, 
+        "out_channels": 1, 
+        "num_res_layers": 36, 
+        "dilation_cycle": 12, 
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 512,
+        "diffusion_step_embed_dim_out": 512
+    },
+    "VAE_configuraciones":{
+        "latent_dim": 20,
+        "encode_dims":  [1000, 800, 400, 300, 100],
+        "expand_encode_dims": 1,
+        "decode_dims": [100, 300, 400, 800, 1000],
+        "expand_decode_dims": 1
+    }
+}

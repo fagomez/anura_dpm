@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>&#x1F438; Anuran Call Synthesis with Diffusion Models for Enhanced Bioacoustic Classification under Data Scarcity</h1>
+  </header>
+  
+  <section id="introduction" class="section">
+    <h2>Introduction</h2>
+    <p>
+      <strong>AnuraBioacoustic-DPM</strong> addresses the critical challenge of data scarcity in anuran (frog) bioacoustic monitoring by harnessing diffusion probabilistic models (DPMs) to generate high-fidelity synthetic calls. Our framework:
+    </p>
+    <ul>
+      <li>Leverages a DPM architecture to produce realistic audio waveforms for 9 frog species.</li>
+      <li>Integrates a Fréchet Inception Distance (FID)–based selection step to ensure synthetic sample quality.</li>
+      <li>Validates realism via human A/B listening tests on <em>Boana faber</em>.</li>
+      <li>Demonstrates significant F1-score improvements—especially for underrepresented species—on severely imbalan ced multi-species classification tasks.</li>
+      <li>Outperforms a WGAN baseline in both realism and classification performance.</li>
+    </ul>
+    <p>This repository contains everything you need to reproduce our results:</p>
+    <ul>
+      <li><strong>Data sources and ISO-metadata</strong> for all real audio recordings used in training and evaluation.</li>
+      <li><strong>Examples</strong> of generated calls for nine anuran species, plus scripts for listening and visualizing spectrograms.</li>
+	  <li><strong>Code</strong> for model training, sample generation, FID‐based selection, and classification experiments.</li>
+  </section>
+  
+  <section id="data-sources" class="section">
+  <h2>📚 Data sources and ISO-metadata</h2>
+  <p>
+    The audio recordings used to train our model originate from the  <a href="https://www2.ib.unicamp.br/fnjv/" target="_blank" rel="noopener">
+      Fonoteca Neotropical Jacques Vielliard </a>
+   </p>
+<p>
+    The audios and their annotations was kindly provided by:
+    <em>Arcila Pérez, L.F., Ulloa, J.S., Network, S., 2024. Manual acoustic signal annotation for species from sound libraries Jacques Vielliard Neotropical Sound Library. Zenodo.</em>  
+    DOI:  
+    <a href="https://doi.org/10.5281/zenodo.13786714" target="_blank" rel="noopener">
+      https://doi.org/10.5281/zenodo.13786714
+    </a>
+  </p>
+  <p>
+    To view the complete ISO metadata associated with each audio file herein used, please visit  
+    <a href="fnjv_unique_codes.html">ISO metadata</a>.
+  </p>
+</section>
+
+  <main>
+    <section class="description-section">
+      <h2>🎧 Frog sound examples</h2>
+      <p>The following image shows real (first row) and generated audios (second to four rows) for the 9 frog species</p>
+	<img src="imgs/sample.png" alt="Descripción de la imagen" width="1000">
+
+<table class="audio-table" border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Audio Type</th>
+      <th>Adenomera marmorata (s1)</th>
+      <th>Boana albomarginata (s2)</th>
+      <th>Boana faber (s3)</th>
+	  <th>Boana leptolineata (s4)</th>
+	  <th>Boana raniceps (s5)</th>
+	  <th>Dendropsophus cruzi (s6)</th>
+	  <th>Dendropsophus elegans (s7)</th>
+	  <th>Physalaemus cuvieri (s8)</th>
+	  <th>Scinax fuscomarginatus (s9)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Original</td>
+      <td>
+        <audio controls>
+          <source src="audio_samples/s1/95_0_FNJV_0050754_Adenomera_marmorata_Guapimirim_RJ_Pedro P. G. Taucce.wav" type="audio/wav" />
+        </audio>
+      </td>
+      <td>
+        <audio controls>
+          <source src="audio_samples/s2/803_0_FNJV_0043889_Boana_albomarginata_Picinguaba_SP_Guilherme Augusto-Alves.wav" type="audio/mp3" />
+        </audio>
+      </td>
+      <td>
+        <audio controls>
+          <source src="audio_samples/s3/2617_0_FNJV_0032289_Boana_faber_Boraceia_SP_Lucas Rodriguez Forti.wav" type="audio/wav" />
+        </audio>
+      </td>
+	  <td>
+        <audio controls>
+          <source src="audio_samples/s4/3495_0_FNJV_0030737_Boana_leptolineata_Lages_SC_Adao Jose Cardoso.wav" type="audio/mp3" />
+        </audio>
+      </td>
+	  <td>
+        <audio controls>
+          <source src="audio_samples/s5/1896_0_FNJV_0034120_Boana_raniceps_Aiuaba_CE_Diego Jose Santana.wav" type="audio/mp3" />
+        </audio>
+      </td>
+	  <td>
+        <audio controls>
+          <source src="audio_samples/s6/4067_0_1583-D.cruzi.wav" type="audio/mp3" />
+        </audio>
+      </td>
+	  <td>
+        <audio controls>
+          <source src="audio_samples/s7/2811_0_FNJV_0031672_Dendropsophus_elegans_Morretes_PR_Adao J. Cardoso.wav" type="audio/mp3" />
+        </audio>
+      </td>
+	  <td>
+        <audio controls>
+          <source src="audio_samples/s8/3125_0_FNJV_0031198_Physalaemus_cuvieri_Taquara_RS_Adao J. Cardoso.wav" type="audio/mp3" />
+        </audio>
+      </td>
+	  <td>
+        <audio controls>
+          <source src="audio_samples/s9/2930_0_FNJV_0031363_Scinax_fuscomarginatus_Paulinia_SP_Ivan Sazima.wav" type="audio/mp3" />
+        </audio>
+      </td>
+    </tr>
+    <tr>
+      <td>Generated_1</td>
+      <td><audio controls><source src="audio_samples/s1/diffgen_audio_36.wav" type="audio/mp3" /></audio></td>
+      <td><audio controls><source src="audio_samples/s2/diffgen_audio_33.wav" type="audio/mp3" /></audio></td>
+      <td><audio controls><source src="audio_samples/s3/diffgen_audio_72.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s4/diffgen_audio_64.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s5/diffgen_audio_84.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s6/diffgen_audio_50.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s7/diffgen_audio_106.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s8/diffgen_audio_82.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s9/diffgen_audio_176.wav" type="audio/mp3" /></audio></td>	  
+    </tr>
+    <tr>
+      <td>Generated_2</td>
+      <td><audio controls><source src="audio_samples/s1/diffgen_audio_116.wav" type="audio/mp3" /></audio></td>
+      <td><audio controls><source src="audio_samples/s2/diffgen_audio_166.wav" type="audio/mp3" /></audio></td>
+      <td><audio controls><source src="audio_samples/s3/diffgen_audio_178.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s4/diffgen_audio_117.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s5/diffgen_audio_54.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s6/diffgen_audio_30.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s7/diffgen_audio_158.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s8/diffgen_audio_154.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s9/diffgen_audio_145.wav" type="audio/mp3" /></audio></td>
+    </tr>
+    <tr>
+      <td>Generated_3</td>
+      <td><audio controls><source src="audio_samples/s1/diffgen_audio_38.wav" type="audio/mp3" /></audio></td>
+      <td><audio controls><source src="audio_samples/s2/diffgen_audio_15.wav" type="audio/mp3" /></audio></td>
+      <td><audio controls><source src="audio_samples/s3/diffgen_audio_26.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s4/diffgen_audio_75.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s5/diffgen_audio_31.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s6/diffgen_audio_107.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s7/diffgen_audio_146.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s8/diffgen_audio_46.wav" type="audio/mp3" /></audio></td>
+	  <td><audio controls><source src="audio_samples/s9/diffgen_audio_110.wav" type="audio/mp3" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<<<<<<< HEAD
+<section id="structure" class="section">
+    <h2>📂 Repository Structure</h2>
+    <pre><code>
+data/
+├── metadata.csv          # Paths, species labels, recording details
+├── real/                 # Original bioacoustic recordings
+└── generated/            # DPM-generated call samples
+
+notebooks/
+├── 01_data_exploration.ipynb
+├── 02_training_DPM.ipynb
+└── 03_quality_selection.ipynb
+
+src/
+├── dpm_model.py          # DPM architecture and sampling routines
+├── train.py              # Training loops for real data
+├── generate.py           # Scripts to generate synthetic calls
+├── select.py             # FID-based selection utilities
+└── classify.py           # Multi-species classifier and evaluation
+
+examples/
+├── boana_faber_ab_test/  # Human A/B test results
+└── spectrograms/         # Visualizations of generated calls
+
+requirements.txt          # Python dependencies
+README.md                 # Project landing page
+    </code></pre>
+  </section>
+=======
+>>>>>>> c069fee91a7193690c8744824b4b1493de23a4d7
+
+    <section class="image-section">
+      <h2>🖼️ Related Images</h2>
+      <div class="image-grid">
+        <img src="images/example1.jpg" alt="Example 1" />
+        <img src="images/example2.jpg" alt="Example 2" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My GitHub Project | Made with 💻 and 🎶</p>
+  </footer>
+</body>
+</html>
