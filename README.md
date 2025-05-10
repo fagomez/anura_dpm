@@ -34,3 +34,11 @@ This repository contains code organized in a series of numbered folders. Follow 
 4. **Folder 4: Systematic Selection**
     - To generate a sample of generated audios and take a sample of real audios, run the Jupyter notebook `code/4_systematic_selection/1_generate_samples.ipynb`. Creates the floder `/data/embedding/BOAFAB_GENERATED/`, and `data/embedding/BOAFAB_REAL/`.
     - To run the systematic selection algorithm, run the Jupyter notebook `code/4_systematic_selection/2_final_figures_embedding_classifier_nodataaug.ipynb`
+  
+5. **Folder 5: Classification under data scarcity**
+    - To create different diffusion models on the different species `code/5_classification_under_data_scarcity/1_exp_augmentation.ipynb`.
+    - To generate data using diffusion models `code/5_classification_under_data_scarcity/2_gen_data_diffusion.ipynb`.
+    - To run classification experiments of data scarcity `code/5_classification_under_data_scarcity/3_classification_augmentation.ipynb`.
+
+6. **Folder 5: CNN-WGANS**
+    - Code for running the CNN-WGANS.
