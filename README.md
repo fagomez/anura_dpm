@@ -41,4 +41,4 @@ This repository contains code organized in a series of numbered folders. Follow 
     - To run classification experiments of data scarcity `code/5_classification_under_data_scarcity/3_classification_augmentation.ipynb`.
 
 6. **Folder 5: CNN-WGANS**
-    - Code for running the CNN-WGANS.
+    - Code for running the CNN-WGANS `code/6_generation_cnnwgans/cnn.py`.
