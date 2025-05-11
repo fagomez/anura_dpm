@@ -10,6 +10,8 @@
     <h1>&#x1F438; Anuran Call Synthesis with Diffusion Models for Enhanced Bioacoustic Classification under Data Scarcity</h1>
   </header>
   
+  <img src="imgs/difussion_process.png" alt="Descripción de la imagen" width="1000">
+  
   <section id="introduction" class="section">
     <h2>Introduction</h2>
     <p>
@@ -25,8 +27,8 @@
     <p>This repository contains everything you need to reproduce our results:</p>
     <ul>
       <li><strong>Data sources and ISO-metadata</strong> for all real audio recordings used in training and evaluation.</li>
-      <li><strong>Examples</strong> of generated calls for nine anuran species, plus scripts for listening and visualizing spectrograms.</li>
-	  <li><strong>Code</strong> for model training, sample generation, FID‐based selection, and classification experiments.</li>
+      <li><strong>Frog sound generated examples</strong> of generated calls for nine anuran species, plus scripts for listening and visualizing spectrograms.</li>
+	  <li><strong>Code repository</strong> for model training, sample generation, FID‐based selection, and classification experiments.</li>
   </section>
   
   <section id="data-sources" class="section">
@@ -45,13 +47,13 @@
   </p>
   <p>
     To view the complete ISO metadata associated with each audio file herein used, please visit  
-    <a href="fnjv_unique_codes.html">ISO metadata</a>.
+    <a href="fnjv_unique_codes.html" target="_blank" rel="noopener">ISO metadata</a>.
   </p>
 </section>
 
   <main>
     <section class="description-section">
-      <h2>🎧 Frog sound examples</h2>
+      <h2>🎧 Frog sound generated examples</h2>
       <p>The following image shows real (first row) and generated audios (second to four rows) for the 9 frog species</p>
 	<img src="imgs/sample.png" alt="Descripción de la imagen" width="1000">
 
@@ -85,7 +87,7 @@
       </td>
       <td>
         <audio controls>
-          <source src="audio_samples/s3/2617_0_FNJV_0032289_Boana_faber_Boraceia_SP_Lucas Rodriguez Forti.wav" type="audio/wav" />
+          <source src="audio_samples/s3/2617_0_FNJV_0032289_Boana_faber_Boraceia_SP_Lucas Rodriguez Forti.wav" type="audio/mp3" />
         </audio>
       </td>
 	  <td>
@@ -158,45 +160,14 @@
   </tbody>
 </table>
 
-<<<<<<< HEAD
 <section id="structure" class="section">
-    <h2>📂 Repository Structure</h2>
-    <pre><code>
-data/
-├── metadata.csv          # Paths, species labels, recording details
-├── real/                 # Original bioacoustic recordings
-└── generated/            # DPM-generated call samples
-
-notebooks/
-├── 01_data_exploration.ipynb
-├── 02_training_DPM.ipynb
-└── 03_quality_selection.ipynb
-
-src/
-├── dpm_model.py          # DPM architecture and sampling routines
-├── train.py              # Training loops for real data
-├── generate.py           # Scripts to generate synthetic calls
-├── select.py             # FID-based selection utilities
-└── classify.py           # Multi-species classifier and evaluation
-
-examples/
-├── boana_faber_ab_test/  # Human A/B test results
-└── spectrograms/         # Visualizations of generated calls
-
-requirements.txt          # Python dependencies
-README.md                 # Project landing page
+    <h2>📂 Source code</h2>
+	The complete source code linked to this project can be accessed here:<a href="https://github.com/fagomez/anura_dpm" target="_blank" rel="noopener">
+      github</a>
+   </p>
+	    
     </code></pre>
   </section>
-=======
->>>>>>> c069fee91a7193690c8744824b4b1493de23a4d7
-
-    <section class="image-section">
-      <h2>🖼️ Related Images</h2>
-      <div class="image-grid">
-        <img src="images/example1.jpg" alt="Example 1" />
-        <img src="images/example2.jpg" alt="Example 2" />
-      </div>
-    </section>
   </main>
 
   <footer>
